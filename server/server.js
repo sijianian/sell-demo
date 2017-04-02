@@ -27,7 +27,7 @@ apiRoutes.get('/ratings', function(req, res) {
         data: ratings
     })
 });
-app.use('/api', apiRoutes);
+app.use('', apiRoutes);
 
 var server = app.listen(8081, function() {
     var host = server.address().address;
