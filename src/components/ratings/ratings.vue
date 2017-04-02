@@ -58,6 +58,9 @@ import BScroll from 'better-scroll'
 import {
     formatDate
 } from '../../assets/js/date'
+import {
+    API_ROOT
+} from '../../config'
 
 const ALL = 2;
 const ERR_OK = 0;
@@ -77,7 +80,7 @@ export default {
         }
     },
     created() {
-        this.$http.get('/api/ratings').then((response) => {
+        this.$http.get(API_ROOT + 'api/ratings').then((response) => {
             response = response.body;
             if (response.errno === ERR_OK) {
                 this.ratings = response.data;
@@ -251,13 +254,13 @@ export default {
                         background: #fff;
                     }
                 }
-                .time{
+                .time {
                     position: absolute;
-                    top:0;
-                    right:0;
+                    top: 0;
+                    right: 0;
                     line-height: 12px;
                     font-size: 10px;
-                    color:rgb(147,153,159);
+                    color: rgb(147,153,159);
                 }
             }
         }

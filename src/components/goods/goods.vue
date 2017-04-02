@@ -45,6 +45,9 @@ import feature from '../feature/feature'
 import BScroll from 'better-scroll'
 import shopcart from '../shopcart/shopcart'
 import cartcontrol from '../cartcontrol/cartcontrol'
+import {
+    API_ROOT
+} from '../../config'
 
 const ERR_OK = 0;
 
@@ -64,7 +67,7 @@ export default {
     },
     created() {
         this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-        this.$http.get('/api/goods').then((response) => {
+        this.$http.get(API_ROOT + 'api/goods').then((response) => {
             response = response.body;
             if (response.errno === ERR_OK) {
                 this.goods = response.data;
