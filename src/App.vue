@@ -18,6 +18,10 @@
 
 <script>
 import header from './components/header/header.vue'
+import {
+    API_ROOT
+} from './config'
+
 const ERR_OK = 0;
 export default {
     name: 'app',
@@ -27,7 +31,7 @@ export default {
         }
     },
     created() {
-        this.$http.get('/api/seller').then((response) => {
+        this.$http.get(API_ROOT + 'api/seller').then((response) => {
             response = response.body;
             if (response.errno === ERR_OK) {
                 this.seller = response.data;
